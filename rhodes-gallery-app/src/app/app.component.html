@@ -1,0 +1,23 @@
+<div style="width: 100%;">
+  <div>
+    <img
+      src="../assets/images/upper-frame.png"
+      width="100%"
+      style="max-width: 1024px; height: auto;"/>
+  </div>
+  <div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <app-menu></app-menu>
+        <span class="example-spacer"></span>
+        <button mat-icon-button aria-label="Home" routerLink="/" routerLinkActive="active">
+          <mat-icon>home</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+<!--    <app-carousel></app-carousel>-->
+  </div>
+</div>
