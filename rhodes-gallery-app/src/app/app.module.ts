@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { MenuComponent } from './menu/menu.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { RouterModule } from '@angular/router';
 import { BooksComponent } from './books/books.component';
 import { PoemsComponent } from './poems/poems.component';
@@ -14,16 +13,17 @@ import { appRoutes } from './routes';
 import {BooksService} from './services/books.service';
 import {HttpClientModule} from '@angular/common/http';
 import { BookComponent } from './book/book.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    CarouselComponent,
     BooksComponent,
     PoemsComponent,
     WatercoloursComponent,
-    BookComponent
+    BookComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

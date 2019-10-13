@@ -1,4 +1,9 @@
-.poem-text {
+h4 {
+  color: white;
+}
+
+.biography-text {
+  color: white;
   font-family: Helvetica, sans-serif;
   font-style: italic;
 }

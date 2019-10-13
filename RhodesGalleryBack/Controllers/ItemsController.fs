@@ -6,11 +6,18 @@ open System.Linq
 open System.Threading.Tasks
 open Microsoft.AspNetCore.Mvc
 open RhodesGallery
+open RhodesGallery
+open RhodesGallery
 
 [<Route("")>]
 [<ApiController>]
 type ItemsController () =
     inherit ControllerBase()
+    
+    [<HttpGet>]
+    [<Route("Biography")>]
+    member this.getBiographySections() =
+        DbManager.query Biography.getAllQuery Biography.reader
 
     [<HttpGet>]
     [<Route("Books")>]

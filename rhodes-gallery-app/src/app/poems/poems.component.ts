@@ -3,56 +3,7 @@ import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {PoemsService} from '../services/poems.service';
 import 'rxjs-compat/add/operator/mergeMap';
-import {Poem, PoemType} from '../services/dtos';
-
-/**
- * Food data with nested structure.
- * Each node has a name and an optiona list of children.
- */
-interface TypeNode {
-  name: string;
-  children?: Poem[];
-}
-
-interface CallResult {
-  types: PoemType[];
-  poems: Poem[];
-}
-
-// const TREE_DATA: FoodNode[] = [
-//   {
-//     name: 'Fruit',
-//     children: [
-//       {name: 'Apple'},
-//       {name: 'Banana'},
-//       {name: 'Fruit loops'},
-//     ]
-//   }, {
-//     name: 'Vegetables',
-//     children: [
-//       {
-//         name: 'Green',
-//         children: [
-//           {name: 'Broccoli'},
-//           {name: 'Brussel sprouts'},
-//         ]
-//       }, {
-//         name: 'Orange',
-//         children: [
-//           {name: 'Pumpkins'},
-//           {name: 'Carrots'},
-//         ]
-//       },
-//     ]
-//   },
-// ];
-
-/** Flat node with expandable and level information */
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
+import {Poem, PoemFormatted, PoemType} from '../services/dtos';
 
 @Component({
   selector: 'app-poems',
@@ -61,53 +12,31 @@ interface ExampleFlatNode {
 })
 export class PoemsComponent implements OnInit {
 
-  constructor(private service: PoemsService) {
-  }
+  constructor(private service: PoemsService) {}
 
-  // tslint:disable-next-line:variable-name
-  private _transformer: (TypeNode, number) => any;
+  poems: PoemFormatted[];
 
-  treeControl: FlatTreeControl<ExampleFlatNode>;
-
-  treeFlattener: MatTreeFlattener;
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
-
-  private treeData() {
-    return this.service.getTypes()
-      .flatMap(t => this.service.getAllPoems()
-        .map(ps => {
-          return t.map(tt => {
-              return {
-                name: tt.code,
-                children: ps.filter(pss => pss.poemTypeId === tt.id)
-              };
-            }
-          );
-        })
-      );
+  private static formatText(text: string): string {
+    console.log(`Text: ${text}`);
+    const replaced = text.split('\n').join('<br />');
+    console.log(`Replaced: ${replaced}`);
+    return replaced;
   }
 
   ngOnInit() {
-    this.treeData()
+    this.service.getAllPoems()
       .subscribe(x => {
-        this.dataSource.data = x;
-        this._transformer = (node: TypeNode, level: number) => {
-          return {
-            expandable: !!node.children && node.children.length > 0,
-            name: node.name,
-            level,
+        this.poems = x.map(p => {
+          const returnValue: PoemFormatted = {
+            id: p.id,
+            code: p.code,
+            name: p.name,
+            poemText: p.poemText,
+            poemTypeId: p.poemTypeId,
+            poemFormatted: PoemsComponent.formatText(p.poemText)
           };
-        };
-
-        this.treeControl = new FlatTreeControl<ExampleFlatNode>(
-          node => node.level, node => node.expandable);
-
-        this.treeFlattener = new MatTreeFlattener(
-          this._transformer, node => node.level, node => node.expandable, node => node.children
-        );
+          return returnValue;
+        });
       });
   }
 

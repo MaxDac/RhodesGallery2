@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RhodesGallery", "RhodesGallery\RhodesGallery.fsproj", "{0DDC6C5A-220A-4FAD-AFFC-1F3D3CF4B1D7}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RhodesGallery", "RhodesGalleryBack\RhodesGallery.fsproj", "{832FF1F8-0DC5-4FA1-9E41-6D87592B3B52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0DDC6C5A-220A-4FAD-AFFC-1F3D3CF4B1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DDC6C5A-220A-4FAD-AFFC-1F3D3CF4B1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DDC6C5A-220A-4FAD-AFFC-1F3D3CF4B1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DDC6C5A-220A-4FAD-AFFC-1F3D3CF4B1D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832FF1F8-0DC5-4FA1-9E41-6D87592B3B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832FF1F8-0DC5-4FA1-9E41-6D87592B3B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832FF1F8-0DC5-4FA1-9E41-6D87592B3B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832FF1F8-0DC5-4FA1-9E41-6D87592B3B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

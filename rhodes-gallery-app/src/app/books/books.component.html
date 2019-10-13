@@ -1,5 +1,5 @@
-<mat-grid-list cols="4" rowHeight="500px">
-  <mat-grid-tile *ngFor="let book of books">
+<mat-tab-group>
+  <mat-tab *ngFor="let book of books" [label]="book.name">
     <app-book [book]="book"></app-book>
-  </mat-grid-tile>
-</mat-grid-list>
+  </mat-tab>
+</mat-tab-group>
